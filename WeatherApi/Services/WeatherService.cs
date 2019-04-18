@@ -1,25 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Runtime.Serialization;
-using System.Security.Authentication;
 using System.Threading.Tasks;
 using AutoMapper;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using WeatherApi.Helpers;
-using WeatherApi.Models;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using WeatherApi.Data;
 using WeatherApi.Entities;
 using WeatherApi.Exceptions;
-using StatusCodes = Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http2.HPack.StatusCodes;
+using WeatherApi.Models;
 
 namespace WeatherApi.Services
 {
@@ -27,7 +14,7 @@ namespace WeatherApi.Services
     {
         private readonly IMapper _mapper;
         private readonly AppDbContext _context;
-        private WeatherApiClient _apiClient;
+        private readonly WeatherApiClient _apiClient;
 
         public WeatherService(IMapper mapper, AppDbContext context, WeatherApiClient apiClient)
         {

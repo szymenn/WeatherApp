@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f6ab386e-28d4-42aa-a14c-203e83cc9014" name="Default Changelist" comment="" />
+    <list default="true" id="f6ab386e-28d4-42aa-a14c-203e83cc9014" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WeatherApp/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WeatherApp/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WeatherApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WeatherApp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Filters/NotFoundFilter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Helpers/WeatherApiClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/WeatherApiClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/WeatherService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/WeatherService.cs" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -9,7 +15,54 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Services/WeatherApiClient.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+              <folding>
+                <marker date="1555602494385" expanded="false" signature="6:106" ph="..." />
+                <marker date="1555602494385" expanded="true" signature="137:1657" ph="{...}" />
+                <marker date="1555602494385" expanded="true" signature="173:1655" ph="{...}" />
+                <marker date="1555602494385" expanded="true" signature="284:342" ph="{...}" />
+                <marker date="1555602494385" expanded="true" signature="408:993" ph="{...}" />
+                <marker date="1555602494385" expanded="true" signature="603:873" ph="{...}" />
+                <marker date="1555602494385" expanded="true" signature="1060:1649" ph="{...}" />
+                <marker date="1555602494385" expanded="true" signature="1263:1528" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Services/WeatherService.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+              <folding>
+                <marker date="1555602507355" expanded="true" signature="6:218" ph="..." />
+                <marker date="1555602507355" expanded="true" signature="249:3550" ph="{...}" />
+                <marker date="1555602507355" expanded="true" signature="283:3548" ph="{...}" />
+                <marker date="1555602507355" expanded="true" signature="521:639" ph="{...}" />
+                <marker date="1555602507355" expanded="true" signature="702:779" ph="{...}" />
+                <marker date="1555602507355" expanded="true" signature="856:1236" ph="{...}" />
+                <marker date="1555602507355" expanded="true" signature="915:1167" ph="{...}" />
+                <marker date="1555602507355" expanded="true" signature="1316:1534" ph="{...}" />
+                <marker date="1555602507355" expanded="true" signature="1626:1755" ph="{...}" />
+                <marker date="1555602507355" expanded="true" signature="1819:1897" ph="{...}" />
+                <marker date="1555602507355" expanded="true" signature="2011:2344" ph="{...}" />
+                <marker date="1555602507355" expanded="true" signature="2133:2289" ph="{...}" />
+                <marker date="1555602507355" expanded="true" signature="2418:2561" ph="{...}" />
+                <marker date="1555602507355" expanded="true" signature="2629:3157" ph="{...}" />
+                <marker date="1555602507355" expanded="true" signature="2814:3060" ph="{...}" />
+                <marker date="1555602507355" expanded="true" signature="3241:3542" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -59,9 +112,8 @@
     <setting file="file://$PROJECT_DIR$/Models/Location.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Error.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Exceptions/CityNotFoundException.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Filters/NotFoundFilter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Exceptions/WeatherApiException.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Helpers/WeatherApiClient.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Services/WeatherApiClient.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Helpers/Constants.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/341DFE22-562E-4DB3-8729-B233A8CD1A5F/3d/930d988d/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Entities/Weather.cs" root0="FORCE_HIGHLIGHTING" />
@@ -71,7 +123,6 @@
     <setting file="file://$PROJECT_DIR$/Startup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../IdentityServerService/Controllers/DeviceController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../WebClient/Controllers/HomeController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../IdentityServerService/Infrastructure/Config.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../IdentityServerService/Controllers/ConsentController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../IdentityServerService/Controllers/AccountController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../IdentityServerService/Startup.cs" root0="FORCE_HIGHLIGHTING" />
@@ -96,7 +147,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Exceptions/ForecastException.cs" />
         <option value="$PROJECT_DIR$/Exceptions/CityNotFoundException.cs" />
         <option value="$PROJECT_DIR$/Exceptions/CityNotAssignedException.cs" />
         <option value="$PROJECT_DIR$/Exceptions/CityAlreadyAssignedException.cs" />
@@ -132,7 +182,6 @@
         <option value="$PROJECT_DIR$/Helpers/ApiClient.cs" />
         <option value="$PROJECT_DIR$/Startup.cs" />
         <option value="$PROJECT_DIR$/Helpers/WeatherApiClient.cs" />
-        <option value="$PROJECT_DIR$/Services/WeatherService.cs" />
         <option value="$PROJECT_DIR$/../WebClient/Helpers/ApiClient.cs" />
         <option value="$PROJECT_DIR$/../WebClient/Services/WeatherService.cs" />
         <option value="$PROJECT_DIR$/../WebClient/Helpers/WeatherApiClient.cs" />
@@ -147,6 +196,8 @@
         <option value="$PROJECT_DIR$/../IdentityServerService/Views/Account/Register.cshtml" />
         <option value="$PROJECT_DIR$/../IdentityServerService/Views/Account/Login.cshtml" />
         <option value="$PROJECT_DIR$/../IdentityServerService/Views/Shared/_Layout.cshtml" />
+        <option value="$PROJECT_DIR$/Services/WeatherApiClient.cs" />
+        <option value="$PROJECT_DIR$/Services/WeatherService.cs" />
       </list>
     </option>
   </component>
@@ -168,6 +219,11 @@
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="WeatherApp" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="WeatherApp" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="WeatherApi" type="24d0babc:SolutionExplorerModelNode" />
             </path>
           </expand>
           <select />
@@ -320,12 +376,12 @@
       <workItem from="1555322064306" duration="2140000" />
       <workItem from="1555423588401" duration="8725000" />
       <workItem from="1555600195132" duration="169000" />
-      <workItem from="1555600428217" duration="723000" />
+      <workItem from="1555600428217" duration="1725000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84361000" />
+    <option name="totallyTimeSpent" value="85363000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -338,6 +394,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49726027" visible="true" weight="0.1673774" />
       <window_info id="Structure" order="1" sideWeight="0.5027397" side_tool="true" weight="0.1641791" />
@@ -441,21 +498,6 @@
           <folding>
             <marker date="1555257390218" expanded="true" signature="44:256" ph="{...}" />
             <marker date="1555257390218" expanded="true" signature="71:254" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Filters/NotFoundFilter.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding>
-            <marker date="1554717474673" expanded="false" signature="6:121" ph="..." />
-            <marker date="1554717474673" expanded="true" signature="151:610" ph="{...}" />
-            <marker date="1554717474673" expanded="true" signature="230:608" ph="{...}" />
-            <marker date="1554717474673" expanded="true" signature="304:337" ph="{...}" />
-            <marker date="1554717474673" expanded="true" signature="408:602" ph="{...}" />
-            <marker date="1554717474673" expanded="true" signature="509:592" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -761,23 +803,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Helpers/WeatherApiClient.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14">
-          <caret line="2" column="29" lean-forward="true" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-          <folding>
-            <marker date="1555426140222" expanded="false" signature="6:83" ph="..." />
-            <marker date="1555426140222" expanded="true" signature="199:1719" ph="{...}" />
-            <marker date="1555426140222" expanded="true" signature="235:1717" ph="{...}" />
-            <marker date="1555426140222" expanded="true" signature="346:404" ph="{...}" />
-            <marker date="1555426140222" expanded="true" signature="470:1055" ph="{...}" />
-            <marker date="1555426140222" expanded="true" signature="665:935" ph="{...}" />
-            <marker date="1555426140222" expanded="true" signature="1122:1711" ph="{...}" />
-            <marker date="1555426140222" expanded="true" signature="1325:1590" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Startup.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
@@ -795,31 +820,6 @@
             <marker date="1555425568129" expanded="true" signature="3169:3674" ph="{...}" />
             <marker date="1555425568129" expanded="true" signature="3216:3293" ph="{...}" />
             <marker date="1555425568129" expanded="true" signature="3310:3513" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Services/WeatherService.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="108" column="35" selection-start-line="108" selection-start-column="35" selection-end-line="108" selection-end-column="35" />
-          <folding>
-            <marker date="1555428687926" expanded="false" signature="6:673" ph="..." />
-            <marker date="1555428687926" expanded="true" signature="704:4005" ph="{...}" />
-            <marker date="1555428687926" expanded="true" signature="738:4003" ph="{...}" />
-            <marker date="1555428687926" expanded="true" signature="976:1094" ph="{...}" />
-            <marker date="1555428687926" expanded="true" signature="1157:1234" ph="{...}" />
-            <marker date="1555428687926" expanded="true" signature="1311:1691" ph="{...}" />
-            <marker date="1555428687926" expanded="true" signature="1370:1622" ph="{...}" />
-            <marker date="1555428687926" expanded="true" signature="1771:1989" ph="{...}" />
-            <marker date="1555428687926" expanded="true" signature="2081:2210" ph="{...}" />
-            <marker date="1555428687926" expanded="true" signature="2274:2352" ph="{...}" />
-            <marker date="1555428687926" expanded="true" signature="2466:2799" ph="{...}" />
-            <marker date="1555428687926" expanded="true" signature="2588:2744" ph="{...}" />
-            <marker date="1555428687926" expanded="true" signature="2873:3016" ph="{...}" />
-            <marker date="1555428687926" expanded="true" signature="3084:3612" ph="{...}" />
-            <marker date="1555428687926" expanded="true" signature="3269:3515" ph="{...}" />
-            <marker date="1555428687926" expanded="true" signature="3696:3997" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1236,6 +1236,55 @@
             <marker date="1554282002861" expanded="true" signature="690:787" ph="{...}" />
             <marker date="1554282002861" expanded="true" signature="838:960" ph="@..." />
             <marker date="1554282002861" expanded="true" signature="862:960" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Services/WeatherApiClient.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+          <folding>
+            <marker date="1555602494385" expanded="false" signature="6:106" ph="..." />
+            <marker date="1555602494385" expanded="true" signature="137:1657" ph="{...}" />
+            <marker date="1555602494385" expanded="true" signature="173:1655" ph="{...}" />
+            <marker date="1555602494385" expanded="true" signature="284:342" ph="{...}" />
+            <marker date="1555602494385" expanded="true" signature="408:993" ph="{...}" />
+            <marker date="1555602494385" expanded="true" signature="603:873" ph="{...}" />
+            <marker date="1555602494385" expanded="true" signature="1060:1649" ph="{...}" />
+            <marker date="1555602494385" expanded="true" signature="1263:1528" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Filters/NotFoundFilter.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Services/WeatherService.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+          <folding>
+            <marker date="1555602507355" expanded="true" signature="6:218" ph="..." />
+            <marker date="1555602507355" expanded="true" signature="249:3550" ph="{...}" />
+            <marker date="1555602507355" expanded="true" signature="283:3548" ph="{...}" />
+            <marker date="1555602507355" expanded="true" signature="521:639" ph="{...}" />
+            <marker date="1555602507355" expanded="true" signature="702:779" ph="{...}" />
+            <marker date="1555602507355" expanded="true" signature="856:1236" ph="{...}" />
+            <marker date="1555602507355" expanded="true" signature="915:1167" ph="{...}" />
+            <marker date="1555602507355" expanded="true" signature="1316:1534" ph="{...}" />
+            <marker date="1555602507355" expanded="true" signature="1626:1755" ph="{...}" />
+            <marker date="1555602507355" expanded="true" signature="1819:1897" ph="{...}" />
+            <marker date="1555602507355" expanded="true" signature="2011:2344" ph="{...}" />
+            <marker date="1555602507355" expanded="true" signature="2133:2289" ph="{...}" />
+            <marker date="1555602507355" expanded="true" signature="2418:2561" ph="{...}" />
+            <marker date="1555602507355" expanded="true" signature="2629:3157" ph="{...}" />
+            <marker date="1555602507355" expanded="true" signature="2814:3060" ph="{...}" />
+            <marker date="1555602507355" expanded="true" signature="3241:3542" ph="{...}" />
           </folding>
         </state>
       </provider>

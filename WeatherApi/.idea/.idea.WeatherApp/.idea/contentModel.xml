@@ -312,14 +312,10 @@
         <e p="ApiExceptionHandlerExtensions.cs" t="Include" />
         <e p="HttpExtensions.cs" t="Include" />
       </e>
-      <e p="Filters" t="Include">
-        <e p="NotFoundFilter.cs" t="Include" />
-      </e>
       <e p="Helpers" t="Include">
         <e p="Constants.cs" t="Include" />
         <e p="CustomClaimTypes.cs" t="Include" />
         <e p="MappingProfile.cs" t="Include" />
-        <e p="WeatherApiClient.cs" t="Include" />
       </e>
       <e p="Migrations" t="Include">
         <e p="20190315171151_InitialSchema.cs" t="Include" />
@@ -358,6 +354,7 @@
         <e p="launchSettings.json" t="Include" />
       </e>
       <e p="Services" t="Include">
+        <e p="WeatherApiClient.cs" t="Include" />
         <e p="WeatherService.cs" t="Include" />
       </e>
       <e p="Startup.cs" t="Include" />
