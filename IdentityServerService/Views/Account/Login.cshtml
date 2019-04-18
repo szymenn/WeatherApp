@@ -1,0 +1,87 @@
+﻿@model IdentityServerService.Models.LoginViewModel
+
+    <div class="fullwidth-block">
+
+        <div class="login-page">
+            <partial name="_ValidationSummary" />
+
+        @if (Model.EnableLocalLogin)
+        {
+            <div class="col-md-6 col-md-offset">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">Login</h1>
+                    </div>
+                    <div class="panel-body">
+                        <form asp-controller="Account" asp-action="Login" method="post">
+                            <input type="hidden" asp-for="ReturnUrl"/>
+                            <div class="row">
+                                <p>
+                                    <label style="text-align: right;" asp-for="Username"></label>
+                                    <input style="text-align: right;" asp-for="Username" placeholder="Username"/>
+                                </p>
+                            </div>
+                            <div class="row">
+                                <p>
+                                    <label style="text-align: right" asp-for="Password"></label>
+                                    <input style="text-align: right" asp-for="Password" placeholder="Password"/>
+                                </p>
+                            </div>
+                            @if (Model.AllowRememberLogin)
+                            {
+                                <div class="row">
+                                        <div class="form-group login-remember">
+                                            <label asp-for="RememberLogin">
+                                                <input asp-for="RememberLogin">
+                                                <strong>Remember My Login</strong>
+                                            </label>
+                                        </div>
+                                </div>
+                            }
+                            <div class="row">
+                                    <p>
+                                        <button class="btn btn-primary" name="button" value="login">Login</button>
+                                        <button class="btn-default" name="button" value="cancel"><a href="https://localhost:5003/Home/Index"></a>Cancel</button>
+                                    </p>
+                            </div>
+                            <div class="row">
+                                        <p>
+                                            <label>Don't have an account? </label>
+                                            <input type="hidden" asp-for="ReturnUrl"/>
+                                            <button class="btn btn-primary" asp-route="Register">Register</button>
+                                        </p>
+                            </div>
+    
+                        </form>
+                        
+             
+                    </div>
+                </div>
+            </div>
+        }
+
+        @if (Model.VisibleExternalProviders.Any())
+        {
+                        <h1>External Login</h1>
+                    <div class="panel-body">
+                            @foreach (var provider in Model.VisibleExternalProviders)
+                            {
+                                <a asp-controller="External"
+                                   asp-action="Challenge"
+                                   asp-route-provider="@provider.AuthenticationScheme"
+                                   asp-route-returnUrl="@Model.ReturnUrl">
+                                   <input type="submit" value="Login with @provider.DisplayName"/>
+                                </a>
+                            }
+                    </div>
+        }
+
+        @if (!Model.EnableLocalLogin && !Model.VisibleExternalProviders.Any())
+        {
+            <div class="alert alert-warning">
+                <strong>Invalid login request</strong>
+                There are no login schemes configured for this client.
+            </div>
+        }
+    </div>
+</div>
