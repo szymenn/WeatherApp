@@ -28,7 +28,8 @@ namespace WebClient.Controllers
             _apiClient = apiClient;
             _mapper = mapper;
         }
-
+        
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             var accessToken = await HttpContext.GetTokenAsync(Constants.AccessToken);
