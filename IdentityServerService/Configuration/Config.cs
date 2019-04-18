@@ -7,7 +7,7 @@ using IdentityModel;
 using IdentityServer4;
 using IdentityServer4.Models;
 
-namespace IdentityServerService.Infrastructure
+namespace IdentityServerService.Configuration
 {
     public static class Config
     {

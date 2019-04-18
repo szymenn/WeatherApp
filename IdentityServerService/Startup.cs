@@ -12,9 +12,9 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using AutoMapper;
 using IdentityServer4;
+using IdentityServerService.Configuration;
 using IdentityServerService.Entities;
 using IdentityServerService.Helpers;
-using IdentityServerService.Infrastructure;
 
 namespace IdentityServerService
 {

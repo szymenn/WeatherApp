@@ -51,7 +51,6 @@ namespace WebClient
                     
                     options.Scope.Add(Constants.ApiScope);
                     options.Scope.Add(Constants.OfflineScope);
-                    options.ClaimActions.MapJsonKey("website", "website");
                 });
 
             services.AddHttpClient<WeatherApiClient>(config =>
