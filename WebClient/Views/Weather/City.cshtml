@@ -1,0 +1,31 @@
+@model CityWeatherModel
+
+<div class="hero" >
+    <div class="container">
+            <h1 style="text-align: center">Weather in @Model.WeatherViewModel.Location.City: </h1>
+    </div>
+</div>
+    <div class="container">
+        <div class="forecast-container">
+
+            <div class="forecast">
+                <div class="forecast-header">
+                    <div class="day">@Model.WeatherViewModel.Location.City</div>
+                </div> <!-- .forecast-header -->
+                <a href="https://localhost:5003/Weather/Forecast?city=@Model.WeatherViewModel.Location.City">
+                    <div class="forecast-content">
+                        <div class="forecast-icon">
+                            <img src="//cdn.apixu.com/weather/64x64/day/113.png" alt="" width=48>
+                        </div>
+                        <div class="degree">@Model.WeatherViewModel.Current.TempC<sup>o</sup>C</div>
+                        <div class="degree">@Model.WeatherViewModel.Current.TempF<sup>o</sup>F</div>
+                        <div class="degree">@Model.WeatherViewModel.Current.Wind km/h</div>
+                    </div>
+                </a>
+                <form asp-controller="Weather" asp-action="SaveCity" method="post">
+                    <input type="hidden" asp-for="City" value="@Model.WeatherViewModel.Location.City">
+                    <input type="submit" value="Save this city">
+                </form>
+            </div>
+        </div>
+    </div>

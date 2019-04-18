@@ -1,0 +1,36 @@
+@model WeatherForecastViewModel
+<div class="hero" data-bg-image="/images/banner.png">
+	<h1 style="text-align: center;">Weather in @Model.Location.City:</h1>
+</div>
+
+	<div class="container">
+
+		<div class="forecast-container">
+
+			@foreach (var day in Model.Forecast.ForecastDays)
+			{
+				<div class="forecast">
+					<div class="forecast-header">
+						<div class="day">@day.Date.DayOfWeek</div>
+					</div> <!-- .forecast-header -->
+					<div class="forecast-content">
+						<div class="forecast-icon">
+							<img src="@day.Day.Condition.Icon" alt="" width=48>
+						</div>
+						<div class="degree">
+							<p>@day.Day.MaxTempC<sup>o</sup>C</p></div>
+						<div class="degree">
+							<p>min: @day.Day.MinTempC<sup>o</sup>C</p></div>
+						<div class="degree">
+							<p>max: @day.Day.MaxTempF<sup>o</sup>F</p></div>
+						<div class="degree">
+							<p>min: @day.Day.MinTempF<sup>o</sup>F</p></div>
+						<div class="degree">
+							<p>@day.Day.MaxWind km/h</p></div>
+					</div>
+				</div>
+
+			}
+		</div>
+	</div>
+

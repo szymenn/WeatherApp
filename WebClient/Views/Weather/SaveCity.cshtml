@@ -1,0 +1,26 @@
+@model WeatherViewModel
+
+<div class="hero" data-bg-image="images/banner.png">
+    <div class="container">
+        <object align="middle">
+            <h1 style="text-align: center">You saved weather for: </h1>
+        </object>
+    </div>
+</div>
+    <div class="container">
+        <div class="forecast-container">
+
+            <div class="forecast">
+                <div class="forecast-header">
+                    <div class="day">@Model.Location.City</div>
+                </div> <!-- .forecast-header -->
+                <div class="forecast-content">
+                    <div class="forecast-icon">
+                        <img src="~/images/icons/icon-3.svg" alt="" width=48>
+                    </div>
+                    <div class="degree">@Model.Current.TempC<sup>o</sup>C</div>
+                    <div class="degree">@Model.Current.TempF<sup>o</sup>F</div>
+                </div>
+            </div>
+        </div>
+    </div>

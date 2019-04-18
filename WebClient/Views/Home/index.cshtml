@@ -1,0 +1,31 @@
+@model WeatherBindingModel
+<div class="hero" data-bg-image="/images/banner.png">
+	<div class="container">
+		<form asp-controller="Weather" asp-action="City" class="find-location">
+			<input asp-for="City" placeholder="Find weather for that city...">
+			<input type="submit" value="Find">
+		</form>
+	</div>
+</div>
+<div class="fullwidth-block" data-bg-color="#262936">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="news">
+					<form asp-controller="Weather" asp-action="Index" method="get">
+						<h1><input type="submit" value="Get your weather"/></h1>
+					</form>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="news">
+					<form asp-controller="Weather" asp-action="SaveCity" method="post">
+						<h1><input asp-for="City" placeholder="Save city..." /></h1>
+						<h1><input type="submit" value="Save" /></h1>	
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>				
+</div>
+
