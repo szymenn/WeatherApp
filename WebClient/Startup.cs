@@ -43,7 +43,7 @@ namespace WebClient
                     options.RequireHttpsMetadata = false;
 
                     options.ClientId = Constants.WebClientId;
-                    options.ClientSecret = "secret";
+                    options.ClientSecret = Configuration["Secrets:AccessSecret"];
                     options.ResponseType = Constants.OidcResponseType;
 
                     options.SaveTokens = true;
