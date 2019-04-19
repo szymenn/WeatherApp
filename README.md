@@ -21,5 +21,5 @@ Simple weather web app I created in order to learn basics of web development usi
 ## Other information
 
 WeatherApp is using [APIXU](https://www.apixu.com/) web API to get current weather data.
-WebClient app and IdentityServerService app is using [this](https://www.themezy.com/free-website-templates/128-steel-weather-free-responsive-website-template) slightly modified Themezy template. 
+WebClient app and IdentityServerService app are using [this](https://www.themezy.com/free-website-templates/128-steel-weather-free-responsive-website-template) slightly modified Themezy template. 
 IdentityServerService is mostly based on [IdentityServer4 ASP.NET Identity template](https://github.com/IdentityServer/IdentityServer4.Templates/tree/dev/src/IdentityServer4AspNetIdentity), some changes include adding user registration and changing css stylesheet. 
