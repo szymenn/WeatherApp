@@ -5,7 +5,11 @@
 **/.idea/**/tasks.xml
 **/.idea/shelf/*
 **/.idea/dictionaries
+**/.idea/
 .idea/
+**/.vscode/
+.vscode/
+
 # Sensitive or high-churn files
 **/.idea/**/dataSources/
 **/.idea/**/dataSources.ids
