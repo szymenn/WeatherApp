@@ -11,7 +11,7 @@ Simple weather web app I created in order to learn basics of web development usi
 - IdentityServer4 
 - AutoMapper
 - PostgreSQL
-## WeatherApp consists of 3 different applications 
+## WeatherApp consists of 3 separate applications 
 - IdentityServerService   - IdentityServer4 app responsible for user store, authentication and authorization.
 - WeatherApi - ASP.NET Core web API responsible for managing weather data and getting weather data from another web API. 
 
