@@ -10,7 +10,7 @@ using WeatherApi.Models;
 
 namespace WeatherApi.Services
 {
-    public class WeatherService
+    public class WeatherService : IWeatherService
     {
         private readonly IMapper _mapper;
         private readonly AppDbContext _context;

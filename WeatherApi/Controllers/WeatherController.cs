@@ -15,10 +15,10 @@ namespace WeatherApi.Controllers
     [Authorize]
     public class WeatherController : ControllerBase
     {
-        private readonly WeatherService _weatherService;
+        private readonly IWeatherService _weatherService;
         private readonly IMapper _mapper;
 
-        public WeatherController(WeatherService weatherService, IMapper mapper)
+        public WeatherController(IWeatherService weatherService, IMapper mapper)
         {
             _weatherService = weatherService;
             _mapper = mapper;

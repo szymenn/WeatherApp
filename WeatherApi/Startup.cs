@@ -45,7 +45,7 @@ namespace WeatherApi
 
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear(); //sub and idp claims flow throgh unmolested
 
-            services.AddScoped<WeatherService>();
+            services.AddScoped<IWeatherService>();
             services.AddAutoMapper(config => config.AddProfile<MappingProfile>());
 
             services.AddDbContext<AppDbContext>(options =>
