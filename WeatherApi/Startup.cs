@@ -48,7 +48,7 @@ namespace WeatherApi
             services.AddScoped<IWeatherService, WeatherService>();
             services.AddAutoMapper(config => config.AddProfile<MappingProfile>());
 
-            services.AddDbContext<AppDbContext>(options =>
+            services.AddDbContext<IDbContext, AppDbContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("WeatherAppDb")));
 
             services.AddAuthentication(Constants.BearerScheme)
