@@ -45,7 +45,7 @@ namespace WeatherApi
 
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear(); //sub and idp claims flow throgh unmolested
 
-            services.AddScoped<IWeatherService>();
+            services.AddScoped<IWeatherService, WeatherService>();
             services.AddAutoMapper(config => config.AddProfile<MappingProfile>());
 
             services.AddDbContext<AppDbContext>(options =>
@@ -59,7 +59,7 @@ namespace WeatherApi
                     options.Audience = Constants.Audience;
                 });
 
-            services.AddHttpClient<WeatherApiClient>(config =>
+            services.AddHttpClient<IWeatherApiClient, WeatherApiClient>(config =>
                 {
                     config.BaseAddress = new Uri("https://api.apixu.com");
                 });

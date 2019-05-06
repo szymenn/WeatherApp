@@ -14,9 +14,9 @@ namespace WeatherApi.Services
     {
         private readonly IMapper _mapper;
         private readonly AppDbContext _context;
-        private readonly WeatherApiClient _apiClient;
+        private readonly IWeatherApiClient _apiClient;
 
-        public WeatherService(IMapper mapper, AppDbContext context, WeatherApiClient apiClient)
+        public WeatherService(IMapper mapper, AppDbContext context, IWeatherApiClient apiClient)
         {
             _mapper = mapper;
             _context = context;
