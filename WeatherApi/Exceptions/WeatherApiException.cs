@@ -9,7 +9,12 @@ namespace WeatherApi.Exceptions
 
         public string ReasonPhrase { get; set; }
 
-    protected WeatherApiException(int statusCode, string reasonPhrase, string message)
+        public WeatherApiException()
+        {
+
+        }
+
+        protected WeatherApiException(int statusCode, string reasonPhrase, string message)
         {
             StatusCode = statusCode;
             Message = message;
