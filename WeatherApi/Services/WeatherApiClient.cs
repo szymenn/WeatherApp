@@ -16,8 +16,7 @@ namespace WeatherApi.Services
 
         public async Task<WeatherDto> GetWeatherDto(string city)
         {
-            var response = await _httpClient.GetAsync
-                ($"/v1/current.json?key=8901d4953b024df288f115913191602&q={city}");
+            var response = await GetWeatherResponseData(city);
             if (!response.IsSuccessStatusCode)
             {
                 var errorDto = await response.Content.ReadAsAsync<ErrorDto>();
@@ -31,8 +30,7 @@ namespace WeatherApi.Services
 
         public async Task<WeatherDto> GetForecastDto(string city)
         {
-            var response = await _httpClient.GetAsync
-                ($"v1/forecast.json?key=8901d4953b024df288f115913191602&q={city}&days=7");
+            var response = await GetForecastResponseData(city);
 
             if (!response.IsSuccessStatusCode)
             {
@@ -44,6 +42,22 @@ namespace WeatherApi.Services
 
             var weatherDto = await response.Content.ReadAsAsync<WeatherDto>();
             return weatherDto;
+        }
+
+        public async Task<HttpResponseMessage> GetWeatherResponseData(string city)
+        {
+            var response = await _httpClient.GetAsync
+                ($"/v1/current.json?key=8901d4953b024df288f115913191602&q={city}");
+
+            return response;
+        }
+
+        public async Task<HttpResponseMessage> GetForecastResponseData(string city)
+        {
+            var response = await _httpClient.GetAsync
+                ($"v1/forecast.json?key=8901d4953b024df288f115913191602&q={city}&days=7");
+
+            return response;
         }
     }
 }
