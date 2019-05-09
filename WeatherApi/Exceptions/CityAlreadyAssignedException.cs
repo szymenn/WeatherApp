@@ -2,7 +2,7 @@ namespace WeatherApi.Exceptions
 {
     public class CityAlreadyAssignedException : WeatherApiException
     {
-        public CityAlreadyAssignedException() : base()
+        public CityAlreadyAssignedException()
         {
             
         }

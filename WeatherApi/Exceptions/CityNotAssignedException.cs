@@ -3,7 +3,7 @@ namespace WeatherApi.Exceptions
     public class CityNotAssignedException : WeatherApiException
     {
 
-        public CityNotAssignedException() : base()
+        public CityNotAssignedException()
         {
             
         }

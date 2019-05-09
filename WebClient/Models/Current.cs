@@ -1,5 +1,3 @@
-using Newtonsoft.Json;
-
 namespace WebClient.Models
 {
     public class Current

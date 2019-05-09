@@ -1,9 +1,7 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.Extensions.Logging;
 using WebClient.Exceptions;
-using WebClient.Helpers;
 using WebClient.Models;
 
 namespace WebClient.Controllers

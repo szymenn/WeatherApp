@@ -3,7 +3,7 @@ namespace WeatherApi.Exceptions
 {
     public class ForecastException : WeatherApiException
     {
-        public ForecastException() : base()
+        public ForecastException()
         {
             
         }

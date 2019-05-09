@@ -16,12 +16,9 @@ using IdentityServerService.Entities;
 using IdentityServerService.Helpers;
 using IdentityServerService.Models;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Remotion.Linq.Utilities;
-using Serilog;
 
 namespace IdentityServerService.Controllers
 {
@@ -249,7 +246,7 @@ namespace IdentityServerService.Controllers
                     EnableLocalLogin = false,
                     ReturnUrl = returnUrl,
                     Username = context?.LoginHint,
-                    ExternalProviders = new ExternalProvider[] { new ExternalProvider { AuthenticationScheme = context.IdP } }
+                    ExternalProviders = new[] { new ExternalProvider { AuthenticationScheme = context.IdP } }
                 };
             }
 

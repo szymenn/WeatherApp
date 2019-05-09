@@ -1,11 +1,9 @@
 using System;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WeatherApi.Exceptions;
-using WeatherApi.Helpers;
 
 namespace WeatherApi.Extensions
 {
