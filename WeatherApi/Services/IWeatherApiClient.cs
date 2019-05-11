@@ -8,7 +8,5 @@ namespace WeatherApi.Services
     {
         Task<WeatherDto> GetWeatherDto(string city);
         Task<WeatherDto> GetForecastDto(string city);
-        Task<HttpResponseMessage> GetWeatherResponseData(string city);
-        Task<HttpResponseMessage> GetForecastResponseData(string city);
     }
 }

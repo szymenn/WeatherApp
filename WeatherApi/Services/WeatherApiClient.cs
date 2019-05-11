@@ -44,7 +44,7 @@ namespace WeatherApi.Services
             return weatherDto;
         }
 
-        public async Task<HttpResponseMessage> GetWeatherResponseData(string city)
+        private async Task<HttpResponseMessage> GetWeatherResponseData(string city)
         {
             var response = await _httpClient.GetAsync
                 ($"/v1/current.json?key=8901d4953b024df288f115913191602&q={city}");
@@ -52,7 +52,7 @@ namespace WeatherApi.Services
             return response;
         }
 
-        public async Task<HttpResponseMessage> GetForecastResponseData(string city)
+        private async Task<HttpResponseMessage> GetForecastResponseData(string city)
         {
             var response = await _httpClient.GetAsync
                 ($"v1/forecast.json?key=8901d4953b024df288f115913191602&q={city}&days=7");

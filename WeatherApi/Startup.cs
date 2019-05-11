@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net.Http;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -58,11 +59,12 @@ namespace WeatherApi
                     options.RequireHttpsMetadata = false;
                     options.Audience = Constants.Audience;
                 });
-
+            
             services.AddHttpClient<IWeatherApiClient, WeatherApiClient>(config =>
                 {
                     config.BaseAddress = new Uri("https://api.apixu.com");
                 });
+            
             services.AddAuthorization();
 
         }
