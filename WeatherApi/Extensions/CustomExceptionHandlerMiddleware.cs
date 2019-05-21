@@ -62,7 +62,7 @@ namespace WeatherApi.Extensions
             {
                 problemDetails.Title = "Internal Server Error";
                 problemDetails.Status = StatusCodes.Status500InternalServerError;
-                problemDetails.Detail = "An unexcepted error occured";
+                problemDetails.Detail = "An unexpected error occured";
                 context.Response.StatusCode = problemDetails.Status.Value;
                 context.Response.WriteJson(problemDetails);
             }
