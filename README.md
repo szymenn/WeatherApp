@@ -27,4 +27,4 @@ WebClient app and IdentityServerService app are using [this](https://www.themezy
 IdentityServerService is mostly based on [IdentityServer4 ASP.NET Identity template](https://github.com/IdentityServer/IdentityServer4.Templates/tree/dev/src/IdentityServer4AspNetIdentity), some changes include adding user registration and changing css stylesheet. 
 
 ## Todo
-- Write unit and integration tests
+- Write more unit and integration tests
