@@ -107,6 +107,11 @@ namespace WebClient.Controllers
 
         }
 
+        public IActionResult Test()
+        {
+            return View();
+        }
+
         public IActionResult Logout()
         {
             return SignOut
