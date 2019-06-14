@@ -1,16 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using IdentityModel;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.TestHost;
-using Microsoft.EntityFrameworkCore.Storage.Internal;
 using Moq;
 using WeatherApi.Controllers;
 using WeatherApi.Exceptions;
@@ -27,12 +22,12 @@ namespace WeatherApi.Tests
         {
             var weatherServiceStub = new Mock<IWeatherService>();
             var mapperServiceStub = new Mock<IMapper>();
-            weatherServiceStub.Setup(e => e.GetWeather("Warsaw"))
+            weatherServiceStub.Setup(e => e.GetWeather(It.IsAny<string>()))
                 .Returns(Task.FromResult(new WeatherDto()));
 
             var weatherController = new WeatherController
                 (weatherServiceStub.Object, mapperServiceStub.Object);
-            var actual = await weatherController.GetWeather("Warsaw");
+            var actual = await weatherController.GetWeather(It.IsAny<string>());
 
             Assert.IsAssignableFrom<OkObjectResult>(actual);
         }
@@ -42,14 +37,14 @@ namespace WeatherApi.Tests
         {
             var weatherServiceStub = new Mock<IWeatherService>();
             var mapperServiceStub = new Mock<IMapper>();
-            weatherServiceStub.Setup(e => e.GetWeather("Warsaw"))
+            weatherServiceStub.Setup(e => e.GetWeather(It.IsAny<string>()))
                 .Returns(Task.FromResult(new WeatherDto()));
             weatherServiceStub.Setup(e => e.GetWeather(It.Is<string>(m => m != "Warsaw")))
                 .Throws<CityNotFoundException>();
 
             var weatherController = new WeatherController
                 (weatherServiceStub.Object, mapperServiceStub.Object);
-            var actual = weatherController.GetWeather("fdsfds");
+            var actual = weatherController.GetWeather(It.Is<string>(m => m != "Warsaw"));
 
             await Assert.ThrowsAsync<CityNotFoundException>(() => actual);
         }
@@ -59,12 +54,12 @@ namespace WeatherApi.Tests
         {
             var weatherServiceStub = new Mock<IWeatherService>();
             var mapperServiceStub = new Mock<IMapper>();
-            weatherServiceStub.Setup(e => e.GetForecast("Warsaw"))
+            weatherServiceStub.Setup(e => e.GetForecast(It.IsAny<string>()))
                 .Returns(Task.FromResult(new WeatherDto()));
 
             var weatherController = new WeatherController
                 (weatherServiceStub.Object, mapperServiceStub.Object);
-            var actual = await weatherController.GetForecast("Warsaw");
+            var actual = await weatherController.GetForecast(It.IsAny<string>());
 
             Assert.IsAssignableFrom<OkObjectResult>(actual);
         }
@@ -74,14 +69,14 @@ namespace WeatherApi.Tests
         {
             var weatherServiceStub = new Mock<IWeatherService>();
             var mapperServiceStub = new Mock<IMapper>();
-            weatherServiceStub.Setup(e => e.GetForecast("Warsaw"))
+            weatherServiceStub.Setup(e => e.GetForecast(It.IsAny<string>()))
                 .Returns(Task.FromResult(new WeatherDto()));
             weatherServiceStub.Setup(e => e.GetForecast(It.Is<string>(m => m != "Warsaw")))
                 .Throws<ForecastException>();
 
             var weatherController = new WeatherController
                 (weatherServiceStub.Object, mapperServiceStub.Object);
-            var actual = weatherController.GetForecast("rerewrwerw");
+            var actual = weatherController.GetForecast(It.Is<string>(m => m != "Warsaw"));
 
             await Assert.ThrowsAsync<ForecastException>(() => actual);
         }
@@ -92,9 +87,9 @@ namespace WeatherApi.Tests
             var mapperStub = new Mock<IMapper>();
             var weatherServiceStub = new Mock<IWeatherService>();
             
-            var user = new ClaimsPrincipal(new ClaimsIdentity(new Claim[]
+            var user = new ClaimsPrincipal(new ClaimsIdentity(new[]
             {
-                new Claim(JwtClaimTypes.Subject, "3eec7892-0956-47cd-af3d-bca4c58eae79"), 
+                new Claim(JwtClaimTypes.Subject, Guid.NewGuid().ToString()), 
             }));
 
             var controller = new WeatherController
@@ -115,9 +110,9 @@ namespace WeatherApi.Tests
             var mapperStub = new Mock<IMapper>();
             var weatherServiceStub = new Mock<IWeatherService>();
             
-            var user = new ClaimsPrincipal(new ClaimsIdentity(new Claim[]
+            var user = new ClaimsPrincipal(new ClaimsIdentity(new[]
             {
-                new Claim(JwtClaimTypes.Subject, "3eec7892-0956-47cd-af3d-bca4c58eae79"), 
+                new Claim(JwtClaimTypes.Subject, Guid.NewGuid().ToString()), 
             }));
 
             var controller = new WeatherController
@@ -140,9 +135,9 @@ namespace WeatherApi.Tests
             weatherServiceStub.Setup(e => e.SaveWeather(It.IsAny<string>(), It.IsAny<Guid>()))
                 .Throws<CityNotFoundException>();
 
-            var user = new ClaimsPrincipal(new ClaimsIdentity(new Claim[]
+            var user = new ClaimsPrincipal(new ClaimsIdentity(new[]
             {
-                new Claim(JwtClaimTypes.Subject, "3eec7892-0956-47cd-af3d-bca4c58eae79")
+                new Claim(JwtClaimTypes.Subject, Guid.NewGuid().ToString())
             }));
 
             var controller = new WeatherController
@@ -152,7 +147,7 @@ namespace WeatherApi.Tests
                         {HttpContext = new DefaultHttpContext {User = user}}
                 };
 
-            var result = controller.SaveWeather("huj");
+            var result = controller.SaveWeather(It.IsAny<string>());
 
             await Assert.ThrowsAsync<CityNotFoundException>(() => result);
         }
@@ -165,9 +160,9 @@ namespace WeatherApi.Tests
             weatherServiceStub.Setup(e => e.SaveWeather(It.IsAny<string>(), It.IsAny<Guid>()))
                 .Throws<CityAlreadyAssignedException>();
             
-            var user = new ClaimsPrincipal(new ClaimsIdentity(new Claim[]
+            var user = new ClaimsPrincipal(new ClaimsIdentity(new[]
             {
-                new Claim(JwtClaimTypes.Subject, "3eec7892-0956-47cd-af3d-bca4c58eae79")
+                new Claim(JwtClaimTypes.Subject, Guid.NewGuid().ToString())
             }));
 
             var controller = new WeatherController
@@ -177,7 +172,7 @@ namespace WeatherApi.Tests
                         {HttpContext = new DefaultHttpContext {User = user}}
                 };
 
-            var result = controller.SaveWeather("huj");
+            var result = controller.SaveWeather(It.IsAny<string>());
 
             await Assert.ThrowsAsync<CityAlreadyAssignedException>(() => result);
         }
@@ -191,9 +186,9 @@ namespace WeatherApi.Tests
                     (e => e.DeleteWeather(It.IsAny<string>(), It.IsAny<Guid>()))
                 .Returns(Task.FromResult<ICollection<WeatherDto>>(new List<WeatherDto>()));
             
-            var user = new ClaimsPrincipal(new ClaimsIdentity(new Claim[]
+            var user = new ClaimsPrincipal(new ClaimsIdentity(new[]
             {
-                new Claim(JwtClaimTypes.Subject, "3eec7892-0956-47cd-af3d-bca4c58eae79")
+                new Claim(JwtClaimTypes.Subject, Guid.NewGuid().ToString())
             }));
 
             var controller = new WeatherController
@@ -203,7 +198,7 @@ namespace WeatherApi.Tests
                         {HttpContext = new DefaultHttpContext {User = user}}
                 };
 
-            var result = await controller.DeleteWeather("hjuj");
+            var result = await controller.DeleteWeather(It.IsAny<string>());
 
             Assert.IsType<OkObjectResult>(result);
         }
@@ -217,9 +212,9 @@ namespace WeatherApi.Tests
                     (e => e.DeleteWeather(It.IsAny<string>(), It.IsAny<Guid>()))
                 .Throws<CityNotAssignedException>();
             
-            var user = new ClaimsPrincipal(new ClaimsIdentity(new Claim[]
+            var user = new ClaimsPrincipal(new ClaimsIdentity(new[]
             {
-                new Claim(JwtClaimTypes.Subject, "3eec7892-0956-47cd-af3d-bca4c58eae79")
+                new Claim(JwtClaimTypes.Subject, Guid.NewGuid().ToString())
             }));
 
             var controller = new WeatherController
@@ -229,7 +224,7 @@ namespace WeatherApi.Tests
                         {HttpContext = new DefaultHttpContext {User = user}}
                 };
 
-            var result = controller.DeleteWeather("hrerwsrew");
+            var result = controller.DeleteWeather(It.IsAny<string>());
 
             await Assert.ThrowsAsync<CityNotAssignedException>(() => result);
         }

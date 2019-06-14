@@ -20,12 +20,12 @@ namespace WeatherApi.Tests
             var httpClientStub = new Mock<IWeatherApiClient>();
             var appDbContextStub = new Mock<IDbContext>();
             var mapperStub = new Mock<IMapper>(); 
-            httpClientStub.Setup(e => e.GetWeatherDto("Warsaw"))
+            httpClientStub.Setup(e => e.GetWeatherDto(It.IsAny<string>()))
                 .Returns(Task.FromResult(new WeatherDto()));
             
             var weatherService = new WeatherService
                 (mapperStub.Object, appDbContextStub.Object, httpClientStub.Object);
-            var actual = await weatherService.GetWeather("Warsaw");
+            var actual = await weatherService.GetWeather(It.IsAny<string>());
             
             Assert.IsType<WeatherDto>(actual);
         }
@@ -35,14 +35,14 @@ namespace WeatherApi.Tests
         {
             var httpClientStub = new Mock<IWeatherApiClient>();
             var mapperStub = new Mock<IMapper>();
-            httpClientStub.Setup(e => e.GetWeatherDto("Warsaw"))
+            httpClientStub.Setup(e => e.GetWeatherDto(It.IsAny<string>()))
                 .Returns(Task.FromResult(new WeatherDto()));
             mapperStub.Setup(e => e.Map<Weather>(It.IsAny<WeatherDto>()))
                 .Returns(new Weather());
 
             var weatherService = new WeatherService
                 (mapperStub.Object, Context, httpClientStub.Object);
-            var actual = await weatherService.SaveWeather("Warsaw", Guid.NewGuid());
+            var actual = await weatherService.SaveWeather("Warsaw", It.IsAny<Guid>());
 
             Assert.IsType<WeatherDto>(actual);
         }
@@ -57,7 +57,7 @@ namespace WeatherApi.Tests
             
             var weatherService = new WeatherService
                 (mapperStub.Object, Context, httpClientStub.Object);
-            var actual = await weatherService.GetUserWeather(Guid.NewGuid());
+            var actual = await weatherService.GetUserWeather(It.IsAny<Guid>());
 
             Assert.IsAssignableFrom<ICollection<WeatherDto>>(actual);
         }
@@ -82,7 +82,7 @@ namespace WeatherApi.Tests
         {
             var httpClientStub = new Mock<IWeatherApiClient>();
             var mapperStub = new Mock<IMapper>();
-            httpClientStub.Setup(e => e.GetWeatherDto("Warsaw"))
+            httpClientStub.Setup(e => e.GetWeatherDto(It.IsAny<string>()))
                 .Returns(Task.FromResult(new WeatherDto()));
             
             var weatherService = new WeatherService
@@ -99,7 +99,7 @@ namespace WeatherApi.Tests
         {
             var httpClientStub = new Mock<IWeatherApiClient>();
             var mapperStub = new Mock<IMapper>();
-            httpClientStub.Setup(e => e.GetWeatherDto("Warsaw"))
+            httpClientStub.Setup(e => e.GetWeatherDto(It.IsAny<string>()))
                 .Returns(Task.FromResult(new WeatherDto()));
             
             var weatherService = new WeatherService
@@ -116,7 +116,7 @@ namespace WeatherApi.Tests
         {
             var httpClientStub = new Mock<IWeatherApiClient>();
             var mapperStub = new Mock<IMapper>();
-            httpClientStub.Setup(e => e.GetWeatherDto("Warsaw"))
+            httpClientStub.Setup(e => e.GetWeatherDto(It.IsAny<string>()))
                 .Returns(Task.FromResult(new WeatherDto()));
 
             var weatherService = new WeatherService

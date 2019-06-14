@@ -1,13 +1,10 @@
 using System;
 using System.IO;
-using System.Net;
-using System.Runtime.Serialization;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Newtonsoft.Json;
-using WeatherApi.Data;
 using WeatherApi.Exceptions;
 using WeatherApi.Extensions;
 using Xunit;
