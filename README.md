@@ -11,6 +11,8 @@ Simple weather web app I created in order to learn basics of web development usi
 - IdentityServer4 
 - AutoMapper
 - PostgreSQL
+- xUnit
+- Moq
 ## WeatherApp consists of 3 separate applications 
 - IdentityServerService   - IdentityServer4 app responsible for user store, authentication and authorization.
 - WeatherApi - ASP.NET Core web API responsible for managing weather data and getting weather data from another web API. 
@@ -23,3 +25,6 @@ Simple weather web app I created in order to learn basics of web development usi
 WeatherApp is using [APIXU](https://www.apixu.com/) web API to get current weather data.
 WebClient app and IdentityServerService app are using [this](https://www.themezy.com/free-website-templates/128-steel-weather-free-responsive-website-template) slightly modified Themezy template. 
 IdentityServerService is mostly based on [IdentityServer4 ASP.NET Identity template](https://github.com/IdentityServer/IdentityServer4.Templates/tree/dev/src/IdentityServer4AspNetIdentity), some changes include adding user registration and changing css stylesheet. 
+
+## Todo
+- Write more unit and integration tests
