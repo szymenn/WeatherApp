@@ -21,44 +21,10 @@ namespace WeatherApi.Tests
             var response = new HttpResponseMessage
             {
                 StatusCode = HttpStatusCode.OK,
-                ReasonPhrase = "huj",
+                ReasonPhrase = It.IsAny<string>(),
                 Content = new StringContent(
-                    "{\"location\": {\"name\": \"Warsaw\"}}"
+                    "{\"location\": {\"name\": \"city\"}}"
                 )
-            };
-            response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
-            var handlerMock = new Mock<HttpMessageHandler>(MockBehavior.Strict);
-            handlerMock.Protected()
-                .Setup<Task<HttpResponseMessage>>
-                (
-                    "SendAsync",
-                    ItExpr.IsAny<HttpRequestMessage>(),
-                    ItExpr.IsAny<CancellationToken>()
-                )
-                .ReturnsAsync(response)
-                .Verifiable();
-
-            var httpClient = new HttpClient(handlerMock.Object)
-            {
-                BaseAddress = new Uri("http://huj.com/")
-            };
-            
-            var weatherApiClient = new WeatherApiClient(httpClient);
-            var result = await weatherApiClient.GetWeatherDto("gowno");
-
-            Assert.IsType<WeatherDto>(result);
-        }
-
-        [Fact]
-        public async Task GetWeatherDto_WhenInvalidData_ThrowsException()
-        {
-            var response = new HttpResponseMessage
-            {
-                StatusCode = HttpStatusCode.BadRequest,
-                ReasonPhrase = "hehe",
-                Content = new StringContent(
-                    "{\"error\": {\"message\": \"spierdalajkurwa\"}}")
             };
             response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
@@ -79,7 +45,41 @@ namespace WeatherApi.Tests
             };
             
             var weatherApiClient = new WeatherApiClient(httpClient);
-            var result = weatherApiClient.GetWeatherDto("invalid city");
+            var result = await weatherApiClient.GetWeatherDto(It.IsAny<string>());
+
+            Assert.IsType<WeatherDto>(result);
+        }
+
+        [Fact]
+        public async Task GetWeatherDto_WhenInvalidData_ThrowsException()
+        {
+            var response = new HttpResponseMessage
+            {
+                StatusCode = HttpStatusCode.BadRequest,
+                ReasonPhrase = It.IsAny<string>(),
+                Content = new StringContent(
+                    "{\"error\": {\"message\": \"error\"}}")
+            };
+            response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var handlerMock = new Mock<HttpMessageHandler>(MockBehavior.Strict);
+            handlerMock.Protected()
+                .Setup<Task<HttpResponseMessage>>
+                (
+                    "SendAsync",
+                    ItExpr.IsAny<HttpRequestMessage>(),
+                    ItExpr.IsAny<CancellationToken>()
+                )
+                .ReturnsAsync(response)
+                .Verifiable();
+
+            var httpClient = new HttpClient(handlerMock.Object)
+            {
+                BaseAddress = new Uri("http://something.com/")
+            };
+            
+            var weatherApiClient = new WeatherApiClient(httpClient);
+            var result = weatherApiClient.GetWeatherDto(It.IsAny<string>());
 
             await Assert.ThrowsAsync<CityNotFoundException>(() => result);
         }
@@ -91,44 +91,10 @@ namespace WeatherApi.Tests
             var response = new HttpResponseMessage
             {
                 StatusCode = HttpStatusCode.OK,
-                ReasonPhrase = "huj",
+                ReasonPhrase = It.IsAny<string>(),
                 Content = new StringContent(
-                    "{\"location\": {\"name\": \"Warsaw\"}}"
+                    "{\"location\": {\"name\": \"city\"}}"
                 )
-            };
-            response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
-            var handlerMock = new Mock<HttpMessageHandler>(MockBehavior.Strict);
-            handlerMock.Protected()
-                .Setup<Task<HttpResponseMessage>>
-                (
-                    "SendAsync",
-                    ItExpr.IsAny<HttpRequestMessage>(),
-                    ItExpr.IsAny<CancellationToken>()
-                )
-                .ReturnsAsync(response)
-                .Verifiable();
-
-            var httpClient = new HttpClient(handlerMock.Object)
-            {
-                BaseAddress = new Uri("http://huj.com/")
-            };
-            
-            var weatherApiClient = new WeatherApiClient(httpClient);
-            var result = await weatherApiClient.GetForecastDto("hioejrwijrwe");
-            
-            Assert.IsType<WeatherDto>(result);
-        }
-
-        [Fact]
-        public async Task GetForecastDto_WhenInvalidData_ThrowsException()
-        {
-            var response = new HttpResponseMessage
-            {
-                StatusCode = HttpStatusCode.BadRequest,
-                ReasonPhrase = "hehe",
-                Content = new StringContent(
-                    "{\"error\": {\"message\": \"spierdalajkurwa\"}}")
             };
             response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
@@ -149,7 +115,41 @@ namespace WeatherApi.Tests
             };
             
             var weatherApiClient = new WeatherApiClient(httpClient);
-            var result = weatherApiClient.GetForecastDto("invalid city");
+            var result = await weatherApiClient.GetForecastDto(It.IsAny<string>());
+            
+            Assert.IsType<WeatherDto>(result);
+        }
+
+        [Fact]
+        public async Task GetForecastDto_WhenInvalidData_ThrowsException()
+        {
+            var response = new HttpResponseMessage
+            {
+                StatusCode = HttpStatusCode.BadRequest,
+                ReasonPhrase = It.IsAny<string>(),
+                Content = new StringContent(
+                    "{\"error\": {\"message\": \"message\"}}")
+            };
+            response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var handlerMock = new Mock<HttpMessageHandler>(MockBehavior.Strict);
+            handlerMock.Protected()
+                .Setup<Task<HttpResponseMessage>>
+                (
+                    "SendAsync",
+                    ItExpr.IsAny<HttpRequestMessage>(),
+                    ItExpr.IsAny<CancellationToken>()
+                )
+                .ReturnsAsync(response)
+                .Verifiable();
+
+            var httpClient = new HttpClient(handlerMock.Object)
+            {
+                BaseAddress = new Uri("http://something.com/")
+            };
+            
+            var weatherApiClient = new WeatherApiClient(httpClient);
+            var result = weatherApiClient.GetForecastDto(It.IsAny<string>());
 
             await Assert.ThrowsAsync<ForecastException>(() => result);
         }
