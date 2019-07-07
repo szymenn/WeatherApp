@@ -23,7 +23,6 @@ namespace WebClient
     
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -52,15 +51,16 @@ namespace WebClient
                     options.Scope.Add(Constants.OfflineScope);
                 });
 
-            services.AddHttpClient<WeatherApiClient>(config =>
+            services.AddHttpClient<IWeatherApiClient, WeatherApiClient>(config =>
             {
                 config.BaseAddress = new Uri("https://localhost:5006/"); 
             });
-            
+
+            services.AddScoped<IHttpContextWrapper, HttpContextWrapper>();
+
             services.AddAutoMapper(config => config.AddProfile<MappingProfile>());
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -70,8 +70,11 @@ namespace WebClient
             else
             {
                 app.UseHsts();
+                
+
                 app.UseStatusCodePagesWithReExecute("/Error/{0}");
                 app.UseCustomExceptionHandler();
+
             }
 
             app.UseStaticFiles();

@@ -16,25 +16,28 @@ namespace WebClient.Controllers
     public class WeatherController : Controller
     {
         private readonly IMapper _mapper;
-        private readonly WeatherApiClient _apiClient;
+        private readonly IWeatherApiClient _apiClient;
+        private readonly IHttpContextWrapper _httpContextWrapper;
+
 
         public WeatherController(
-            WeatherApiClient apiClient,
-            IMapper mapper)
+            IWeatherApiClient apiClient,
+            IMapper mapper,
+            IHttpContextWrapper httpContextWrapper)
         {
             _apiClient = apiClient;
             _mapper = mapper;
+            _httpContextWrapper = httpContextWrapper;
         }
         
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var accessToken = await HttpContext.GetTokenAsync(Constants.AccessToken);
+            var accessToken = await _httpContextWrapper.GetTokenAsync(Constants.AccessToken, HttpContext);
 
             var weatherDtos = await _apiClient.GetUserWeather(accessToken);
             var weatherViewModels = _mapper.Map<ICollection<WeatherViewModel>>(weatherDtos);
-            var weatherModel = new WeatherModel();
-            weatherModel.WeatherViewModels = weatherViewModels;
+            var weatherModel = new WeatherModel {WeatherViewModels = weatherViewModels};
 
             return View(weatherModel);
         }
@@ -65,7 +68,7 @@ namespace WebClient.Controllers
                 return View();
             }
 
-            var accessToken = await HttpContext.GetTokenAsync(Constants.AccessToken);
+            var accessToken = await _httpContextWrapper.GetTokenAsync(Constants.AccessToken, HttpContext);
             
             var weatherDto = await _apiClient.SaveCity(model.City, accessToken);
        
@@ -96,7 +99,7 @@ namespace WebClient.Controllers
                 return View(nameof(Index));
             }
 
-            var accessToken = await HttpContext.GetTokenAsync(Constants.AccessToken);
+            var accessToken = await _httpContextWrapper.GetTokenAsync(Constants.AccessToken, HttpContext);
             var updatedWeather = await _apiClient.DeleteCity(model.City, accessToken);
             var updatedWeatherViewModel = _mapper.Map<ICollection<WeatherViewModel>>(updatedWeather);
 

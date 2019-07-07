@@ -22,7 +22,6 @@ namespace WebClient.Controllers
             {
                 message = message + $"Internal Server Error.";
             }
-            
 
             return View(new ErrorViewModel
             {
