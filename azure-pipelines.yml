@@ -1,8 +1,4 @@
 # ASP.NET
-- task: reportgenerator@4
-  inputs:
-    reports: 'coverage.xml'
-    targetdir: 'coveragereport'
 # Build and test ASP.NET projects.
 # Add steps that publish symbols, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
@@ -43,3 +39,8 @@ steps:
   inputs:
     testRunner: VSTest
     testResultsFiles: '**/*.trx'
+
+- task: reportgenerator@4
+  inputs:
+    reports: 'coverage.xml'
+    targetdir: 'coveragereport'
