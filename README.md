@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/zalewsks7/WeatherApp/_apis/build/status/szymenn.WeatherApp?branchName=master)](https://dev.azure.com/zalewsks7/WeatherApp/_build/latest?definitionId=1&branchName=master)
+
 # WeatherApp
 Simple weather web app I created in order to learn basics of web development using C#. Any feedback is much welcomed. 
 ## Features
@@ -5,6 +7,9 @@ Simple weather web app I created in order to learn basics of web development usi
 - Getting 7 day forecast for specified city
 - Authentication and authorization using OpenIdConnect protocol
 ## Used Technologies
+### CI tools
+- Azure DevOps
+### WeatherApp
 - C# 7.3
 - ASP.NET Core 2.2/2.1
 - Entity Framework Core 2.1.2
@@ -27,4 +32,4 @@ WebClient app and IdentityServerService app are using [this](https://www.themezy
 IdentityServerService is mostly based on [IdentityServer4 ASP.NET Identity template](https://github.com/IdentityServer/IdentityServer4.Templates/tree/dev/src/IdentityServer4AspNetIdentity), some changes include adding user registration and changing css stylesheet. 
 
 ## Todo
-- Write more unit and integration tests
+- Write more unit and add integration tests
