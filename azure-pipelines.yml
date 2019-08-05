@@ -39,8 +39,3 @@ steps:
   inputs:
     testRunner: VSTest
     testResultsFiles: '**/*.trx'
-
-- task: reportgenerator@4
-  inputs:
-    reports: 'coverage.xml'
-    targetdir: 'coveragereport'
