@@ -34,7 +34,7 @@ steps:
     projects: '**/*Tests/*.csproj'
     arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
 
-- script: dotnet test WeatherApi.Tests.csproj --logger trx --collect "Code coverage"
+- script: dotnet test test/WeatherApi.Tests.csproj --logger trx --collect "Code coverage"
 - task: PublishTestResults@2
   inputs:
     testRunner: VSTest
