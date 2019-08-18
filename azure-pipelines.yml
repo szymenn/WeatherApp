@@ -40,4 +40,12 @@ steps:
   inputs:
     testRunner: VSTest
     testResultsFiles: '**/*.trx'
+
+- task: SonarQubePrepare@4
+  inputs:
+    SonarQube: 'SonarQube'
+    scannerMode: 'MSBuild'
+    projectKey: 'WeatherApp'
+    projectName: 'WeatherApp'
+
 - task: SonarQubeAnalyze@4
