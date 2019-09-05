@@ -21,10 +21,10 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
-
-- task: SonarQubePrepare@4
+- task: SonarCloudPrepare@1
   inputs:
-    SonarQube: 'SonarQube'
+    SonarCloud: 'SonarCloudConnection'
+    organization: 'szymenn'
     scannerMode: 'MSBuild'
     projectKey: 'WeatherApp'
 - task: VSBuild@1
@@ -46,4 +46,4 @@ steps:
     testRunner: VSTest
     testResultsFiles: '**/*.trx'
 
-- task: SonarQubeAnalyze@4
+- task: SonarCloudAnalyze@1
