@@ -1,4 +1,3 @@
-[![Build Status](https://dev.azure.com/zalewsks7/WeatherApp/_apis/build/status/szymenn.WeatherApp?branchName=master)](https://dev.azure.com/zalewsks7/WeatherApp/_build/latest?definitionId=1&branchName=master)
 
 # WeatherApp
 Simple weather web app I created in order to learn basics of web development using C#. Any feedback is much welcomed. 
