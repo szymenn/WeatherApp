@@ -6,7 +6,6 @@ Simple weather web app I created in order to learn basics of web development usi
 - Getting 7 day forecast for specified city
 - Authentication and authorization using OpenIdConnect protocol
 ## Used Technologies
-### WeatherApp
 - C# 7.3
 - ASP.NET Core 2.2/2.1
 - Entity Framework Core 2.1.2
